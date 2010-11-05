@@ -1,2 +1,8 @@
 Example application for those, who want's to use Sinatra 1.1 with Delayed_Job
 (2.0.3) together with DataMapper.
+
+To run it, follow these steps:
+
+1. gem install sinatra delayed_job dm-core dm-migrations dm-timestamps
+2. In one window run: rake dj:work
+3. On second do: ruby server.rb
