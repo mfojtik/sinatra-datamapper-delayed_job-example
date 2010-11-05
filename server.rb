@@ -1,12 +1,11 @@
 require 'rubygems'
+require 'initializer'
 require 'sinatra'
-require 'deltacloud'
-require 'database_initializer'
-require 'delayed_job'
-require 'haml'
 
 # Sinatra settings
 enable :inline_templates
+
+DataMapper::Logger.new($stdout, :debug)
 
 # Delayed job settings
 
@@ -15,12 +14,7 @@ get '/' do
 end
 
 post '/jobs' do
-  Delayed::Worker.backend = :data_mapper
   inst_job = InstanceJob.create(:command => params[:cmd])
-  job = Delayed::Job.enqueue(inst_job)
-  puts "************************"
-  puts "************************"
-  job.invoke_job
   redirect '/'
 end
 
