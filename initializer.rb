@@ -3,7 +3,6 @@ require 'dm-migrations'
 require 'dm-timestamps'
 require 'delayed_job'
 require 'haml'
-require 'deltacloud'
 
 # DataMapper objects
 require 'instance_job'
