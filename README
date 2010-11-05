@@ -1,0 +1,2 @@
+Example application for those, who want's to use Sinatra 1.1 with Delayed_Job
+(2.0.3) together with DataMapper.
