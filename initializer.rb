@@ -5,10 +5,19 @@ require 'delayed_job'
 require 'haml'
 
 # DataMapper objects
-require 'instance_job'
+require 'lib/notice'
+require 'lib/provider'
+require 'lib/authentication_key'
+require 'lib/instance_pooler'
+require 'lib/instance'
+require 'lib/hardware_profile'
+require 'lib/image'
+require 'lib/realm'
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/test.sqlite")
 DataMapper.auto_migrate!
+
+Delayed::Worker.max_run_time = 900
 Delayed::Worker.backend = :data_mapper
 
 module DataMapper
